@@ -8,10 +8,10 @@ services:
       volumes:
        - ./mysql-data:/var/lib/mysql
       environment:
-       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
-       MYSQL_DATABASE: '${DB_NAME}'
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: ${DB_NAME}
       expose:
-       - "${DB_PORT}"
+       - ${DB_PORT}
 
     PMA:
       depends_on:
@@ -20,6 +20,6 @@ services:
       container_name: db_pma
       restart: always
       ports:
-       - '${PHPMYADMIN_PORT}:80'
+       - ${PHPMYADMIN_PORT}:80
       environment:
         PMA_HOST: db
